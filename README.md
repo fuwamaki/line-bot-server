@@ -117,3 +117,38 @@ $ mysql -uroot -p
 ```
 $ mysql.server stop
 ```
+
+## localで確認するために
+
+- mysql操作
+
+```
+mysql> CREATE USER 'y-maki'@'localhost'; //ユーザ作成
+mysql> grant all on *.* to 'y-maki'@'localhost'; //アクセス権限付与
+```
+
+※参考
+
+```
+mysql> select User,Host from mysql.user; //ユーザ一覧表示
+```
+
+- rails側操作
+
+新規データベース作成
+
+```
+$ bundle exec rake db:create
+```
+
+モデルを作成
+
+```
+bundle exec rails g scaffold home name:string body:text email:string
+```
+
+migrate
+
+```
+bundle exec rake db:migrate
+```
