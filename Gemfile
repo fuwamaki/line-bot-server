@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Line Message API
 gem 'line-bot-api'
+gem "faraday"
+gem "faraday_middleware"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
