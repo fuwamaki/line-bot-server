@@ -26,3 +26,7 @@ test:
 production:
   <<: *default
   database: db/production
+  database: heroku_2645e7a9e8f83eb
+  username: b776edb730f23b
+  password: 96ba2906
+  host: https://linebot-matsumoto.herokuapp.com:443
