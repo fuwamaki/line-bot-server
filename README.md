@@ -26,3 +26,39 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# セットアップした時の手順
+
+1. 初期化
+
+```
+bundle init
+```
+
+2. GemfileのRailsのコメントアウトを外す
+
+3. Railsインストール
+
+```
+bundle install --path=vendor/bundle
+```
+
+4. Railsアプリケーション作成
+
+```
+$ bundle exec rails new .
+```
+
+5. ライブラリインストール
+
+```
+$ bundle install --path=vendor/bundle
+```
+
+# ローカルで実行する方法
+
+Terminalで下記コマンド
+
+```
+bundle exec rails s
+```
