@@ -3,7 +3,6 @@ class WebhookController < ApplicationController
   
     CHANNEL_ID = ENV['LINE_CHANNEL_ID']
     CHANNEL_SECRET = ENV['LINE_CHANNEL_SECRET']
-    CHANNEL_MID = ENV['LINE_CHANNEL_MID']
     OUTBOUND_PROXY = ENV['LINE_OUTBOUND_PROXY']
   
     def callback
