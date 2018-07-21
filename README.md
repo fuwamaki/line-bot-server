@@ -79,3 +79,41 @@ Terminalで下記コマンド
 ```
 $ bundle exec rails s
 ```
+
+http://localhost:3000/ へアクセス。
+
+# ローカルでmysql
+
+ローカルでmysqlをセットアップしたのでメモ
+
+```
+$ brew install mysql
+```
+
+以上。
+
+## mysql操作方法
+
+- mySQL起動
+
+```
+$ mysql.server start
+```
+
+- 初期設定
+
+```
+$ mysql_secure_installation
+```
+
+- mySQL実行
+
+```
+$ mysql -uroot -p
+```
+
+- mySQL終了
+
+```
+$ mysql.server stop
+```
