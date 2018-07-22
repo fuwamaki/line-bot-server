@@ -35,6 +35,9 @@ class LineClient
             elsif text.rindex("まつもと") == 0 then
                 replyText = text.slice!(4..-1)
             end
+            if replytext == "" then
+                replytext = "いや、みんなでキャンプ楽しんで"
+            end
             messages = [
                 {
                 "type" => "text",
