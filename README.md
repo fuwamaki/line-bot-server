@@ -72,6 +72,22 @@ Email: user@example.com
 Password:
 ```
 
+3. herokuドメイン作成
+
+```
+$ heroku create line-botmatsumoto
+```
+
+※ その他heroku便利コマンド
+
+```
+$ heroku open #herokuサーバページ開く
+$ heroku run rake db:migrate #herokuにデプロイしたアプリケーションのデータベースを更新します。
+$ heroku logs #ログ確認
+$ heroku logs | grep error #エラーのみ表示
+$ heroku config #heroku設定内容確認
+```
+
 # ローカルで実行する方法
 
 Terminalで下記コマンド
@@ -144,11 +160,11 @@ $ bundle exec rake db:create
 モデルを作成
 
 ```
-bundle exec rails g scaffold home name:string body:text email:string
+$ bundle exec rails g scaffold home name:string body:text email:string
 ```
 
 migrate
 
 ```
-bundle exec rake db:migrate
+$ bundle exec rake db:migrate
 ```
