@@ -28,20 +28,17 @@ class LineClient
     def reply(replyToken, text)
         #"松本"が文頭にある時のみ返答する
         if text.rindex("松本") == 0 || text.rindex("まつもと") == 0 then
+            replyText = "いや、みんなでキャンプ楽しんで"
             #文字を判別したい
             if text.rindex("松本") == 0 then
-                text = text.slice(0..1)
+                replyText = text.slice(0..1)
             elsif text.rindex("まつもと") == 0 then
-                text = text.slice(0..3)
-            end
-
-            if text == "" then
-                text = "いや、みんなでキャンプ楽しんで"
+                replyText = text.slice(0..3)
             end
             messages = [
                 {
                 "type" => "text",
-                "text" => text
+                "text" => replyText
                 }
             ]
             body = {
