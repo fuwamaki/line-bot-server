@@ -33,7 +33,7 @@ class LineClient
             if text.rindex("松本") == 0 then
                 replyText = text.slice!(2..-1)
             elsif text.rindex("まつもと") == 0 then
-                replyText = text.slice!(0..3)
+                replyText = text.slice!(4..-1)
             end
             messages = [
                 {
