@@ -39,7 +39,7 @@ class LineClient
             "messages" => messages
         }
         #松本を含んでいなかったら返事しない
-        if str.rindex("松本") == 0 then
+        if text.rindex("松本") == 0 then
             post('/v2/bot/message/reply', body.to_json)
         end
     end
