@@ -26,19 +26,21 @@ class LineClient
     end
   
     def reply(replyToken, text)
-  
-      messages = [
-        {
-          "type" => "text" ,
-          "text" => text
+        #文字を判別したい
+        messages = [
+            {
+            "type" => "text",
+            "text" => text
+            }
+        ]
+    
+        body = {
+            "replyToken" => replyToken ,
+            "messages" => messages
         }
-      ]
-  
-      body = {
-        "replyToken" => replyToken ,
-        "messages" => messages
-      }
-      post('/v2/bot/message/reply', body.to_json)
+        #松本を含んでいなかったら返事しない
+        if text == "あああ"
+            post('/v2/bot/message/reply', body.to_json)
     end
   
 end
