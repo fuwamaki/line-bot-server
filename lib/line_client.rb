@@ -31,7 +31,7 @@ class LineClient
             replyText = "いや、みんなでキャンプ楽しんで"
             #文字を判別したい
             if text.rindex("松本") == 0 then
-                replyText = text.slice!(1..-1)
+                replyText = text.slice!(2..-1)
             elsif text.rindex("まつもと") == 0 then
                 replyText = text.slice!(0..3)
             end
