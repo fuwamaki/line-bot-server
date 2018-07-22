@@ -26,20 +26,28 @@ class LineClient
     end
   
     def reply(replyToken, text)
-        #文字を判別したい
-        messages = [
-            {
-            "type" => "text",
-            "text" => text
+        #"松本"が文頭にある時のみ返答する
+        if text.rindex("松本") == 0 || text.rindex("まつもと") == 0 then
+            #文字を判別したい
+            if text.rindex("松本") == 0 then
+                text = text.slice!(0..1)
+            elsif text.rindex("まつもと") == 0 then
+                text = text.slice!(0..3)
+            end
+
+            if text == "" then
+                text = "いや、みんなでキャンプ楽しんで"
+            end
+            messages = [
+                {
+                "type" => "text",
+                "text" => text
+                }
+            ]
+            body = {
+                "replyToken" => replyToken ,
+                "messages" => messages
             }
-        ]
-    
-        body = {
-            "replyToken" => replyToken ,
-            "messages" => messages
-        }
-        #松本を含んでいなかったら返事しない
-        if text.rindex("松本") == 0 then
             post('/v2/bot/message/reply', body.to_json)
         end
     end
