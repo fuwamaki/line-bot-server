@@ -39,8 +39,9 @@ class LineClient
             "messages" => messages
         }
         #松本を含んでいなかったら返事しない
-        if text == "あああ"
+        if text == "あああ" then
             post('/v2/bot/message/reply', body.to_json)
+        end
     end
   
 end
