@@ -30,13 +30,11 @@ class LineClient
         if text.rindex("松本") == 0 || text.rindex("まつもと") == 0 then
             replyText = "いや、みんなでキャンプ楽しんで"
             #文字を判別したい
-            if text.rindex("松本") == 0 then
+            if text == "松本" || text == "まつもと" then
+            elsif text.rindex("松本") == 0 then
                 replyText = text.slice!(2..-1)
             elsif text.rindex("まつもと") == 0 then
                 replyText = text.slice!(4..-1)
-            end
-            if replytext == "" then
-                replytext = "いや、みんなでキャンプ楽しんで"
             end
             messages = [
                 {
