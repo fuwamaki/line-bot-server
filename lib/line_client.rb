@@ -30,9 +30,9 @@ class LineClient
         if text.rindex("松本") == 0 || text.rindex("まつもと") == 0 then
             #文字を判別したい
             if text.rindex("松本") == 0 then
-                text = text.slice!(0..1)
+                text = text.slice(0..1)
             elsif text.rindex("まつもと") == 0 then
-                text = text.slice!(0..3)
+                text = text.slice(0..3)
             end
 
             if text == "" then
