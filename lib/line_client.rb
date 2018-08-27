@@ -1,11 +1,11 @@
 class LineClient
     END_POINT = "https://api.line.me"
-  
+
     def initialize(channel_access_token, proxy = nil)
       @channel_access_token = channel_access_token
       @proxy = proxy
     end
-  
+
     def post(path, data)
       client = Faraday.new(:url => END_POINT) do |conn|
         conn.request :json
