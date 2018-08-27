@@ -52,7 +52,7 @@ class LineClient
     def discriminateText(text)
       returnText = text
       if text.rindex("宿教えて") == 0
-        returnText = "ここに泊まるよ ¥n https://www.airbnb.jp/rooms/21943255"
+        returnText = "ここに泊まるよ https://www.airbnb.jp/rooms/21943255"
       elsif text.rindex("アメニティ教えて") == 0
         returnText = ("Wifi、テレビ、エアコン完備。タオルやキッチングッズも完備しているらしいよ！")
       elsif text.rindex("一人いくら") == 0
@@ -63,6 +63,8 @@ class LineClient
         # 人数を上限として、数字をランダムで抽出
         # array[value]の人をTextに入れる
         returnText = ("" + "お前だ")
+      else
+        returnText = "いや、みんなでキャンプ楽しんで"
       end
       return returnText
     end
