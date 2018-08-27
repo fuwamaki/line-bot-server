@@ -24,37 +24,52 @@ class LineClient
       end
       res
     end
-  
-    def reply(replyToken, text)
-        #宿の情報を教えてくれる松本
-        #アメニティ教えてくれる松本
-        #メンバーを無作為に選んでくれる松本
-        #スーパーの場所教えてくれる松本
-        #一人いくらか計算してくれる松本
-        #費用を追加して、計算してくれる松本
 
-        #"松本"が文頭にある時のみ返答する
-        if text.rindex("松本") == 0 || text.rindex("まつもと") == 0 then
-            replyText = "いや、みんなでキャンプ楽しんで"
-            #文字を判別したい
-            if text == "松本" || text == "まつもと" then
-            elsif text.rindex("松本") == 0 then
-                replyText = text.slice!(2..-1)
-            elsif text.rindex("まつもと") == 0 then
-                replyText = text.slice!(4..-1)
-            end
-            messages = [
-                {
-                "type" => "text",
-                "text" => replyText
-                }
-            ]
-            body = {
-                "replyToken" => replyToken ,
-                "messages" => messages
-            }
-            post('/v2/bot/message/reply', body.to_json)
-        end
+    def reply(replyToken, text)
+      # TODO: メンバーを無作為に選んでくれる松本
+      # TODO: スーパーの場所教えてくれる松本
+      replyText = ""
+      if text.rindex("松本") == 0
+        replyText = discriminateText(text.slice!(2..-1))
+      elsif text.rindex("まつもと")
+        replyText = discriminateText(text.slice!(4..-1))
+      elsif text.rindex("マツモト")
+        replyText = discriminateText(text.slice!(4..-1))
+      end
+      messages = [
+        {
+        "type" => "text",
+        "text" => replyText
+        }
+      ]
+      body = {
+        "replyToken" => replyToken ,
+        "messages" => messages
+      }
+      post('/v2/bot/message/reply', body.to_json)
     end
-  
+
+    def discriminateText(text)
+      returnText = text
+      if text.rindex("宿教えて") == 0
+        returnText = "ここに泊まるよ ¥n https://www.airbnb.jp/rooms/21943255"
+      elsif text.rindex("アメニティ教えて") == 0
+        returnText = ("Wifi、テレビ、エアコン完備。タオルやキッチングッズも完備しているらしいよ！")
+      elsif text.rindex("一人いくら") == 0
+        returnText = ("一人あたり" + amount().to_s + "円だよ")
+      elsif text.rindex("選んで") == 0
+        # space区切りで人を抽出
+        # 配列に人を格納していく
+        # 人数を上限として、数字をランダムで抽出
+        # array[value]の人をTextに入れる
+        returnText = ("" + "お前だ")
+      end
+      return returnText
+    end
+
+    def amount()
+      hotel = 112705
+      car = 19780 + 19780
+      return (hotel + car) / 11
+    end
 end
