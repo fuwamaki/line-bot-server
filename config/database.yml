@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: db/development
-  username: maki
+  username: y-maki
   password:
   host: localhost
 
