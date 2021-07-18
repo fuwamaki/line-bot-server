@@ -11,17 +11,21 @@ default: &default
 
 development:
   <<: *default
-  database: db/development
+  database: db/linebot
   username: y-maki
   password:
   host: localhost
+  encoding: utf8mb4
+  charset: utf8mb4
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test
+  database: db/linebot-test
+  encoding: utf8mb4
+  charset: utf8mb4
 
 production:
   <<: *default
